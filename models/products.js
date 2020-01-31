@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     hasOptions: DataTypes.STRING
   }, {});
   products.associate = function(models) {
-    products.hasMany(models.Items)
+    products.hasMany(models.Items);
   };
   return products;
 };

@@ -11,8 +11,9 @@ module.exports = {
       clientName: {
         type: Sequelize.STRING
       },
-      desk: {
-        type: Sequelize.INTEGER
+      id_table: {
+        type: Sequelize.INTEGER,
+        references: {model: 'tables', key: 'id'}
       },
       time: {
         type: Sequelize.DATE
@@ -28,7 +29,7 @@ module.exports = {
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('orders');
   }
 };
