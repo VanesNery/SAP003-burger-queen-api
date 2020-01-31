@@ -1,22 +1,25 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
-import productRoutes from './Routes/productRoutes';
+import productRoutes from "./Routes/productRoutes";
+import ordersRoutes from "./Routes/ordersRoutes";
+import itemsRoutes from "./Routes/itemsRoutes";
+import tablesRoutes from "./Routes/tablesRoutes";
 
 const app = express();
-
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 3000;
 
-app.use('/api/products', productRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", ordersRoutes);
+app.use("/api/items", itemsRoutes);
+app.use("/api/tables", tablesRoutes);
 
-// when a random route is inputed
 app.get("*", (req, res) =>
   res.status(200).send({
-    message: "Welcome to this API."
+    message: "Bem-Vindo a API Burguer Queen"
   })
 );
 
