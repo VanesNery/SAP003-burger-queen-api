@@ -1,16 +1,16 @@
-const orderService = require('../services/orderServices');
+const tableServices = require('../services/tablesServices');
 const Utils = require('../Utils/Utils');
 
 const util = new Utils();
 
-class OrdersController {
-    static async getAllOrders(res) {
+class TablesController {
+    static async getAllTables(res) {
       try {
-        const allOrders = await orderService.getAllOrders()
-        if (allOrders.length > 0) {
-          util.setSuccess(200, 'Orders retrieved', allOrders)
+        const allTables = await tableServices.getAllTables()
+        if (allTables.length > 0) {
+          util.setSuccess(200, 'Tables retrieved', allTables)
         } else {
-          util.setSuccess(200, 'No Order found')
+          util.setSuccess(200, 'No Table found')
         }
         return util.send(res)
       } catch (error) {
@@ -19,34 +19,34 @@ class OrdersController {
       }
     }
   
-    static async addOrder(req, res) {
+    static async addTable(req, res) {
       if (!req.body.name || !typeof(req.body.is_alive)==='boolean' ) {
         util.setError(400, 'Please provide complete details')
         return util.send(res)
       }
-      const newOrder = req.body
+      const newTable = req.body
       try {
-        const createdOrder = await orderService.addOrder(newOrder)
-        util.setSuccess(201, 'Order Added!', createdOrder)
+        const createdTable = await tableServices.addTable(newTable)
+        util.setSuccess(201, 'Table Added!', createdTable)
         return util.send(res)
       } catch (error) {
         util.setError(400, error.message)
         return util.send(res)
       }}
   
-    static async updatedOrder(req, res) {
-      const alteredOrder = req.body
+    static async updatedTable(req, res) {
+      const alteredTable = req.body
       const { id } = req.params
       if (!Number(id)) {
         util.setError(400, 'Please input a valid numeric value')
         return util.send(res)
       }
       try {
-        const updateOrder = await orderService.updateOrder(id, alteredOrder)
-        if (!updateOrder) {
-          util.setError(404, `Cannot find Order with the id: ${id}`)
+        const updateTable = await tableServices.updateTable(id, alteredTable)
+        if (!updateTable) {
+          util.setError(404, `Cannot find Table with the id: ${id}`)
         } else {
-          util.setSuccess(200, 'Order updated', updateOrder)
+          util.setSuccess(200, 'Table updated', updateTable)
         }
         return util.send(res)
       } catch (error) {
@@ -55,7 +55,7 @@ class OrdersController {
       }
     }
   
-    static async getOrder(req, res) {
+    static async getTable(req, res) {
       const { id } = req.params
   
       if (!Number(id)) {
@@ -64,12 +64,12 @@ class OrdersController {
       }
   
       try {
-        const theOrder = await orderService.getOrder(id)
+        const theTable = await tableServices.getTable(id)
   
-        if (!theOrder) {
-          util.setError(404, `Cannot find Order with the id ${id}`)
+        if (!theTable) {
+          util.setError(404, `Cannot find Table with the id ${id}`)
         } else {
-          util.setSuccess(200, 'Found Order', theOrder)
+          util.setSuccess(200, 'Found Table', theTable)
         }
         return util.send(res)
       } catch (error) {
@@ -78,7 +78,7 @@ class OrdersController {
       }
     }
   
-    static async deleteOrder(req, res) {
+    static async deleteTable(req, res) {
       const { id } = req.params
   
       if (!Number(id)) {
@@ -87,12 +87,12 @@ class OrdersController {
       }
   
       try {
-        const OrderToDelete = await orderService.deleteOrder(id)
+        const TableToDelete = await tableServices.deleteTable(id)
   
-        if (OrderToDelete) {
-          util.setSuccess(200, 'Order deleted')
+        if (TableToDelete) {
+          util.setSuccess(200, 'Table deleted')
         } else {
-          util.setError(404, `Order with the id ${id} cannot be found`)
+          util.setError(404, `Table with the id ${id} cannot be found`)
         }
         return util.send(res)
       } catch (error) {
@@ -102,4 +102,4 @@ class OrdersController {
     }
   }
   
-  export default OrdersController
+  export default TablesController
