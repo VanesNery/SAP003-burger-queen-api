@@ -2,9 +2,9 @@ import { Router } from 'express'
 import ProductController from '../Controllers/ProductController';
 
 const router = Router()
-router.get('/products', ProductController.getAll)
-router.post('/products', ProductController.addProduct)
-router.get('/products/:productid', ProductController.getProduct)
-router.put('/products/:productid', ProductController.updatedProduct)
-router.delete('/products/:productid', ProductController.deleteProduct)
+router.get('/', ProductController.getAllProducts)
+router.post('/', ProductController.addProduct)
+router.get('/:id', ProductController.getaddProduct)
+router.put('/:id', ProductController.updatedProduct)
+router.delete('/:id', ProductController.deleteProduct)
 export default router
