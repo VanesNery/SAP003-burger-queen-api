@@ -1,6 +1,6 @@
 "use strict";
 module.exports = {
-  up: (queryInterface) => {
+  up: queryInterface => {
     return queryInterface.bulkInsert(
       "products",
       [
@@ -135,7 +135,7 @@ module.exports = {
     );
   },
 
-  down: (queryInterface) => {
+  down: queryInterface => {
     return queryInterface.bulkDelete("products", null, {});
   }
 };

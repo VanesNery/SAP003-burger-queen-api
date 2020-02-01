@@ -1,5 +1,5 @@
-const itemServices = require('../services/itemsServices');
-const Utils = require('../Utils/Utils');
+const itemServices = require('../../services/itemsService');
+import Utils from '../Utils/Utils';
 
 const util = new Utils();
 
@@ -20,7 +20,7 @@ class ItemsController {
     }
   
     static async addItem(req, res) {
-      if (!req.body.name || !typeof(req.body.is_alive)==='boolean' ) {
+      if (!req.body.id_product || !req.body.status_item || !req.body.id_orders ) {
         util.setError(400, 'Please provide complete details')
         return util.send(res)
       }

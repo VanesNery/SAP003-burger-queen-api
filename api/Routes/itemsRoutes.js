@@ -1,10 +1,10 @@
 import { Router } from 'express'
 import ItemController from '../Controllers/ItemsController';
 
-const router = Router()
-router.get('/', ItemController.getAllItems)
-router.post('/', ItemController.addItem)
-router.get('/:id', ItemController.getaddItem)
-router.put('/:id', ItemController.updatedItem)
-router.delete('/:id', ItemController.deleteItem)
-export default router
+const itemsRoutes = Router()
+itemsRoutes.get('/', ItemController.getAllItems)
+itemsRoutes.post('/', ItemController.addItem)
+itemsRoutes.get('/:id', ItemController.getItem)
+itemsRoutes.put('/:id', ItemController.updatedItem)
+itemsRoutes.delete('/:id', ItemController.deleteItem)
+export default itemsRoutes

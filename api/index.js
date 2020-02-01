@@ -1,14 +1,13 @@
 import express from "express";
-import cors from "cors";
+import bodyParser from 'body-parser';
 import productRoutes from "./Routes/productRoutes";
 import ordersRoutes from "./Routes/ordersRoutes";
 import itemsRoutes from "./Routes/itemsRoutes";
 import tablesRoutes from "./Routes/tablesRoutes";
 
 const app = express();
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 3000;
 
