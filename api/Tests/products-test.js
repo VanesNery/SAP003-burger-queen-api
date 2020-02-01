@@ -11,10 +11,8 @@ describe("Testing the product endpoints:", () => {
       name: "Suco Natural 500ml",
       price: 7,
       type: "Breakfast",
-      isExtras: false,
-      hasOptions: "",
-      createdAt: new Date(),
-      updatedAt: new Date()
+      isextras: false,
+      hasoptions: ""
     };
     chai
       .request(app)
@@ -28,9 +26,8 @@ describe("Testing the product endpoints:", () => {
           name: products.name,
           price: products.price,
           type: products.type,
-          isExtras: products.isExtras,
-          createdAt: products.createdAt,
-          updatedAt: products.updatedAt
+          isextras: products.isextras,
+          hasoptions: products.hasoptions
         });
         done();
       });
@@ -38,7 +35,7 @@ describe("Testing the product endpoints:", () => {
 
   it("It should not create a product with incomplete parameters", done => {
     const products = {
-      isExtras: false
+      isextras: false
     };
     chai
       .request(app)
@@ -62,10 +59,8 @@ describe("Testing the product endpoints:", () => {
         res.body.data[0].should.have.property("name");
         res.body.data[0].should.have.property("price");
         res.body.data[0].should.have.property("type");
-        res.body.data[0].should.have.property("isExtras");
-        res.body.data[0].should.have.property("hasOptions");
-        res.body.data[0].should.have.property("createdAt");
-        res.body.data[0].should.have.property("updatedAt");
+        res.body.data[0].should.have.property("isextras");
+        res.body.data[0].should.have.property("hasoptions");
         done();
       });
   });
@@ -82,10 +77,8 @@ describe("Testing the product endpoints:", () => {
         res.body.data[0].should.have.property("name");
         res.body.data[0].should.have.property("price");
         res.body.data[0].should.have.property("type");
-        res.body.data[0].should.have.property("isExtras");
-        res.body.data[0].should.have.property("hasOptions");
-        res.body.data[0].should.have.property("createdAt");
-        res.body.data[0].should.have.property("updatedAt");
+        res.body.data[0].should.have.property("isextras");
+        res.body.data[0].should.have.property("hasoptions");
         done();
       });
   });
@@ -121,16 +114,14 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should update a product", done => {
-    const id_products = 8;
+    const id_products = 4;
     const updatedproduct = {
       id: id_products,
       name: " Suco Natural 750ml",
       price: 10,
       type: "Breakfast",
-      isExtras: false,
-      hasOptions: "",
-      createdAt: new Date(),
-      updatedAt: new Date()
+      isextras: false,
+      hasoptions: "",
     };
     chai
       .request(app)
@@ -141,12 +132,10 @@ describe("Testing the product endpoints:", () => {
         expect(res.status).to.equal(200);
         expect(res.body.data.id).equal(updatedproduct.id);
         expect(res.body.data.name).equal(updatedproduct.name);
-        expect(res.body.data.is_alive).equal(updatedproduct.price);
-        expect(res.body.data.is_alive).equal(updatedproduct.type);
-        expect(res.body.data.is_alive).equal(updatedproduct.isExtras);
-        expect(res.body.data.is_alive).equal(updatedproduct.hasOptions);
-        expect(res.body.data.is_alive).equal(updatedproduct.createdAt);
-        expect(res.body.data.is_alive).equal(updatedproduct.updatedAt);
+        expect(res.body.data.price).equal(updatedproduct.price);
+        expect(res.body.data.type).equal(updatedproduct.type);
+        expect(res.body.data.isextras).equal(updatedproduct.isextras);
+        expect(res.body.data.hasoptions).equal(updatedproduct.hasoptions);
         done();
       });
   });
@@ -158,10 +147,8 @@ describe("Testing the product endpoints:", () => {
       name: "Updated Awesome product again",
       price: 7,
       type: "Breakfast",
-      isExtras: false,
-      hasOptions: "",
-      createdAt: new Date(),
-      updatedAt: new Date()
+      isextras: false,
+      hasoptions: "",
     };
     chai
       .request(app)
@@ -184,10 +171,8 @@ describe("Testing the product endpoints:", () => {
       name: "Updated Awesome product again",
       price: 7,
       type: "Breakfast",
-      isExtras: false,
-      hasOptions: "",
-      createdAt: new Date(),
-      updatedAt: new Date()
+      isextras: false,
+      hasoptions: "",
     };
     chai
       .request(app)

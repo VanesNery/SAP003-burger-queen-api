@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     id_table: DataTypes.INTEGER,
     time: DataTypes.DATE,
     finalTime: DataTypes.DATE,
-    totalPrice: DataTypes.DECIMAL(10,2),
+    total: DataTypes.DECIMAL(5,2),
     status: DataTypes.STRING,
   }, {});
   orders.associate = function(models) {
