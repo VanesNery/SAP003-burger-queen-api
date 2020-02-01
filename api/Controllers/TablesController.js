@@ -1,5 +1,5 @@
-const tableServices = require('../services/tablesServices');
-const Utils = require('../Utils/Utils');
+const tableServices = require('../../services/tablesService');
+import Utils from '../Utils/Utils';
 
 const util = new Utils();
 
@@ -20,7 +20,7 @@ class TablesController {
     }
   
     static async addTable(req, res) {
-      if (!req.body.name || !typeof(req.body.is_alive)==='boolean' ) {
+      if (!req.body.number) {
         util.setError(400, 'Please provide complete details')
         return util.send(res)
       }

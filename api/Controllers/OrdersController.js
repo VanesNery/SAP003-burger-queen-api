@@ -1,5 +1,5 @@
-const orderService = require('../services/orderServices');
-const Utils = require('../Utils/Utils');
+const orderService = require('../../services/orderService');
+import Utils from '../Utils/Utils';
 
 const util = new Utils();
 
@@ -20,7 +20,7 @@ class OrdersController {
     }
   
     static async addOrder(req, res) {
-      if (!req.body.name || !typeof(req.body.is_alive)==='boolean' ) {
+      if (!req.body.id_table || !req.body.status_orders ) {
         util.setError(400, 'Please provide complete details')
         return util.send(res)
       }
