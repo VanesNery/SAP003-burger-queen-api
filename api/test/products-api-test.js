@@ -1,7 +1,7 @@
 import chai from "chai";
 import chatHttp from "chai-http";
 import "chai/register-should";
-const app = require ("../index");
+import app from "../index";
 chai.use(chatHttp);
 const { expect } = chai;
 
@@ -72,7 +72,7 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should get a particular product", done => {
-    const productsId = 5;
+    const productsId = 1;
     chai
       .request(app)
       .get(`/api/products/${productsId}`)

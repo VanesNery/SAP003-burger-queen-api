@@ -1,5 +1,5 @@
 import express from 'express'
-const bodyParser = require ('body-parser')
+import bodyParser from 'body-parser'
 import productRoutes from './server/routes/productRoutes.js';
 import ordersRoutes from './server/routes/ordersRoutes';
 import itemsRoutes from './server/routes/itemsRoutes';
