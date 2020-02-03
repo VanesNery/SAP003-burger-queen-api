@@ -1,21 +1,19 @@
 require('dotenv').config();
 
 module.exports = {
-    "development": {
+  "development": {
     "username": "postgres",
     "password": null,
-    "database": "burguerqueen_dev",
+    "database": "bq_api_development",
     "host": "db",
     "dialect": "postgres",
-    "operatorsAliases": false
   },
   "test": {
     "username": "postgres",
     "password": null,
-    "database": "burguerqueen_test",
+    "database": "bq_api_test",
     "host": "db",
     "dialect": "postgres",
-    "operatorsAliases": false
   },
   "production": {
     "username": process.env.DB_USER,
@@ -23,6 +21,8 @@ module.exports = {
     "database": process.env.DB_DATABASE,
     "host": process.env.DB_HOST,
     "dialect": "postgres",
-    "operatorsAliases": false
+    "dialectOptions": {
+      "ssl": true
+    }
   }
 }

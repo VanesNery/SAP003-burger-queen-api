@@ -3,7 +3,6 @@ import OrdersController from '../controllers/OrdersController';
 
 const router = Router()
 router.get('/', OrdersController.getAllOrders)
-router.get('/items', OrdersController.getAllOrdersItems)
 router.get('/items/:id', OrdersController.getAllOrdersItems);
 router.post('/', OrdersController.addOrder);
 router.post('/items', OrdersController.addOrdersItems);

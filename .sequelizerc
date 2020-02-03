@@ -1,4 +1,4 @@
-const path  = require('path')
+const path  = require('path');
 module.exports = {
     "config": path.resolve('./api/server/src/config', 'config.js'),
     "models-path": path.resolve('./api/server/src/models'),

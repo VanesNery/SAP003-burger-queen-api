@@ -1,17 +1,16 @@
 {
   "name": "bq-api-node",
   "version": "1.0.0",
-  "description": "New version of Burguer Queen",
+  "description": "Burguer Queen",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./api/index.js",
+    "dev": "nodemon  --exec babel-node ./api/index.js",
     "migrate": "npx sequelize-cli db:migrate",
-    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
-    "dev": "nodemon --exec babel-node ./api/index.js",
-    "start": "babel-node ./api/index.js"
+    "test": "export NODE_ENV=test && sequelize db:migrate:undo:all && sequelize db:migrate && nyc --require @babel/register mocha ./api/test/*test.js --timeout 20000 --exit"
   },
-  "keywords": [],
   "author": "Vanessa Nery",
-  "license": "Unlicense",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -22,9 +21,7 @@
     "pg": "^7.18.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.4",
-    "sequelize-cli": "^5.5.1"
-  },
-  "devDependencies": {
+    "sequelize-cli": "^5.5.1",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
@@ -32,7 +29,10 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.8.3",
     "@babel/runtime": "^7.8.4",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.0.6"
+  },
+  "devDependencies": {
+    
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
