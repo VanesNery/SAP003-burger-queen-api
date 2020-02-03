@@ -1,18 +1,18 @@
 {
-  "name": "new_store",
+  "name": "bq-api-node",
   "version": "1.0.0",
-  "description": "New version of Burguer Queen",
+  "description": "## 1. Preâmbulo",
   "main": "index.js",
   "scripts": {
-    "migrate": "npx sequelize-cli db:migrate",
-    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
-    "dev": "nodemon --exec babel-node ./api/index.js"
+    "test": "jest",
+    "dev": "nodemon  --exec babel-node ./api/index.js"
   },
-  "author": "Ricardo Fukui",
-  "license": "Unlicense",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",
@@ -31,13 +31,9 @@
     "@babel/register": "^7.7.7",
     "@babel/runtime": "^7.7.7",
     "babel-loader": "^8.0.6",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "mocha": "^7.0.0",
-    "nyc": "^15.0.0"
+    "eslint-plugin-import": "^2.19.1"
   },
   "repository": {
     "type": "git",
