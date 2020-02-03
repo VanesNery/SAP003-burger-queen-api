@@ -1,37 +1,38 @@
-import database from '../src/models';
+import database from "../src/models";
 
 class productsService {
   static async getAllProducts() {
     try {
-      return await database.products.findAll()
+      return await database.products.findAll();
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
   static async addProduct(newProduct) {
     try {
-      return await database.products.create(newProduct)
+      return await database.products.create(newProduct);
     } catch (error) {
-      throw error
+      throw error;
     }
   }
-
 
   static async updateProduct(id, updateProduct) {
     try {
       const productToUpdate = await database.products.findOne({
         where: { id: Number(id) }
-      })
+      });
 
       if (productToUpdate) {
-        await database.products.update(updateProduct, { where: { id: Number(id) } })
+        await database.products.update(updateProduct, {
+          where: { id: Number(id) }
+        });
 
-        return updateProduct
+        return updateProduct;
       }
-      return null
+      return null;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
@@ -39,29 +40,31 @@ class productsService {
     try {
       const theProducts = await database.products.findOne({
         where: { id: Number(id) }
-      })
+      });
 
-      return theProducts
+      return theProducts;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
   static async deleteProduct(id) {
     try {
-      const productsToDelete = await database.products.findOne({ where: { id: Number(id) } })
+      const productsToDelete = await database.products.findOne({
+        where: { id: Number(id) }
+      });
 
       if (productsToDelete) {
         const deletedProducts = await database.products.destroy({
           where: { id: Number(id) }
-        })
-        return deletedProducts
+        });
+        return deletedProducts;
       }
-      return null
+      return null;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 }
 
-module.exports = productsService
+module.exports = productsService;

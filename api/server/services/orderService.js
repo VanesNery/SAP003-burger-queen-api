@@ -1,43 +1,44 @@
-const database = require('../src/models');
+const database = require("../src/models");
 
 class orderServices {
   static async getAllOrders() {
     try {
       return await database.orders.findAll({
         include: [
-          { model: database.tables, as: 'table' },
-          { model: database.products, as: 'products', duplicating: true }
-        ],
-      })
+          { model: database.tables, as: "table" },
+          { model: database.products, as: "products", duplicating: true }
+        ]
+      });
     } catch (error) {
       console.log(error);
-      throw error
+      throw error;
     }
   }
 
   static async addOrders(newOrders) {
     try {
-      return await database.orders.create(newOrders)
+      return await database.orders.create(newOrders);
     } catch (error) {
-      throw error
+      throw error;
     }
   }
-
 
   static async updateOrders(id, updateOrders) {
     try {
       const ordersToUpdate = await database.orders.findOne({
         where: { id: Number(id) }
-      })
+      });
 
       if (ordersToUpdate) {
-        await database.orders.update(updateOrders, { where: { id: Number(id) } })
+        await database.orders.update(updateOrders, {
+          where: { id: Number(id) }
+        });
 
-        return updateOrders
+        return updateOrders;
       }
-      return null
+      return null;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
@@ -45,29 +46,31 @@ class orderServices {
     try {
       const theOrders = await database.orders.findOne({
         where: { id: Number(id) }
-      })
+      });
 
-      return theOrders
+      return theOrders;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
   static async deleteOrders(id) {
     try {
-      const ordersToDelete = await database.orders.findOne({ where: { id: Number(id) } })
+      const ordersToDelete = await database.orders.findOne({
+        where: { id: Number(id) }
+      });
 
       if (ordersToDelete) {
         const deletedOrders = await database.orders.destroy({
           where: { id: Number(id) }
-        })
-        return deletedOrders
+        });
+        return deletedOrders;
       }
-      return null
+      return null;
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 }
 
-module.exports = orderServices
+module.exports = orderServices;

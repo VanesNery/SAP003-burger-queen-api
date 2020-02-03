@@ -139,4 +139,3 @@ module.exports = {
     return queryInterface.bulkDelete("products", null, {});
   }
 };
-

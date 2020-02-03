@@ -159,7 +159,7 @@ describe("Testing the product endpoints:", () => {
       price: 7,
       type: "Breakfast",
       isExtras: false,
-      hasOptions: "",
+      hasOptions: ""
     };
     chai
       .request(app)
@@ -183,7 +183,7 @@ describe("Testing the product endpoints:", () => {
       price: 7,
       type: "Breakfast",
       isExtras: false,
-      hasOptions: "",
+      hasOptions: ""
     };
     chai
       .request(app)
