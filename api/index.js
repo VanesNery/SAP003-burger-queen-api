@@ -1,9 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
-import productRoutes from "./api/server/routes/productRoutes.js";
-import ordersRoutes from "./api/server/routes/ordersRoutes";
-import itemsRoutes from "./api/server/routes/itemsRoutes";
-import tablesRoutes from "./api/server/routes/tablesRoutes";
+const productRoutes = require ("./server/routes/productRoutes");
+const ordersRoutes = require ("./server/routes/ordersRoutes");
+const itemsRoutes = require ("./server/routes/itemsRoutes");
+const tablesRoutes = require ("./server/routes/tablesRoutes");
 
 const app = express();
 app.use(bodyParser.json());

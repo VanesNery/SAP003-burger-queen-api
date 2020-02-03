@@ -1,5 +1,5 @@
-import productsService from "../services/productsService";
-import Utils from "../utils/Utils";
+const productsService = require ("../services/productsService");
+const Utils = require ("../utils/Utils");
 
 const util = new Utils();
 

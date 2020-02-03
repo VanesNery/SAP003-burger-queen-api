@@ -1,5 +1,5 @@
-import tablesService from "../services/tablesService";
-import Utils from "../utils/Utils";
+const tablesService = require ("../services/tablesService");
+const Utils = require ("../utils/Utils");
 
 const util = new Utils();
 

@@ -1,6 +1,6 @@
 const database = require("../src/models");
 
-class orderServices {
+class orderService {
   static async getAllOrders() {
     try {
       return await database.orders.findAll({
@@ -73,4 +73,4 @@ class orderServices {
   }
 }
 
-module.exports = orderServices;
+module.exports = orderService;

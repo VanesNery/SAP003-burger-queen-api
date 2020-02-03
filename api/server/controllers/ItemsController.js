@@ -1,5 +1,5 @@
-import itemsService from '../services/itemsService';
-import Utils from '../utils/Utils';
+const itemsService = require ('../services/itemsService');
+const Utils = require ('../utils/Utils');
 
 const util = new Utils();
 

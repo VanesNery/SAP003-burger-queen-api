@@ -1,4 +1,4 @@
-import database from "../src/models";
+const database = require ("../src/models");
 
 class productsService {
   static async getAllProducts() {

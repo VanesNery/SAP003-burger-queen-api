@@ -2,7 +2,6 @@ import chai from "chai";
 import chatHttp from "chai-http";
 import "chai/register-should";
 import app from "../index";
-import { updateItems } from "../server/services/itemsService";
 chai.use(chatHttp);
 const { expect } = chai;
 
