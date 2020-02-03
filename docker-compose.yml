@@ -1,24 +1,10 @@
 version: '3.4'
 
 services:
-  test:
-    image: node:12-alpine
-    container_name: new_store_api_test
-    command: npm run test
-    working_dir: /app
-    ports:
-      - "3001:3000"
-    volumes:
-      - ./:/app:cached
-    networks:
-      - store-network
-    depends_on:
-      - db
-
   dev:
     image: node:12-alpine
     container_name: new_store_api_dev
-    command: npm run dev
+    command: sh -c "npm run migrate && npm run dev"
     working_dir: /app
     ports:
       - "3000:3000"
@@ -28,7 +14,7 @@ services:
       - store-network
     depends_on:
       - db
-
+      
   db:
     image: postgres
     container_name: new_store_db
@@ -38,6 +24,20 @@ services:
       - database:/var/lib/postgresql/data
     networks:
       - store-network
+
+  test:
+    image: node:12-alpine
+    container_name: new_store_api_test
+    command: sh -c "npm run migrate && npm run test"
+    working_dir: /app
+    ports:
+    - "3001:3000"
+    volumes:
+    - ./:/app:cached
+    networks:
+    - store-network
+    depends_on:
+    - db
 
 volumes:
   database:
