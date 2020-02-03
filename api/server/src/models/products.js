@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   products.associate = function(models) {
     products.hasMany(models.items);
+    products.hasMany(models.products);
   };
   return products;
 };
