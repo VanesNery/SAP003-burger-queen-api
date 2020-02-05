@@ -1,4 +1,4 @@
-const database = require("../src/models");
+import database from "../src/models";
 
 class itemsService {
   static async getAllItems() {
