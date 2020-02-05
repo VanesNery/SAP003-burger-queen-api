@@ -26,7 +26,7 @@ if (config.environment === 'production') {
       dialect: 'postgres',
       dialectOption: {
         ssl: true,
-        decimalNumbers: true
+        native: true
       },
       logging: true
     }
@@ -57,4 +57,4 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-export default db
+export default db;

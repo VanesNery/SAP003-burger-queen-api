@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "orders",
     {
       clientName: DataTypes.STRING,
+      tablesId: DataTypes.INTEGER,
       total: DataTypes.DECIMAL,
       status: DataTypes.STRING,
       time: DataTypes.DATE,
@@ -13,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   orders.associate = function(models) {
     orders.hasMany(models.items);
+    orders.belongsTo(models.tables);
   };
   return orders;
 };

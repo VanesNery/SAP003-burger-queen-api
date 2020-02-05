@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import TablesController from '../controllers/TablesController';
 
-const tablesRoutes = Router()
-tablesRoutes.get('/', TablesController.getAllTables)
-tablesRoutes.post('/', TablesController.addTable)
-tablesRoutes.get('/:id', TablesController.getTable)
-tablesRoutes.put('/:id', TablesController.updatedTable)
-tablesRoutes.delete('/:id', TablesController.deleteTable)
-module.exports = tablesRoutes
+const router = Router()
+router.get('/', TablesController.getAllTables)
+router.post('/', TablesController.addTable)
+router.get('/:id', TablesController.getTable)
+router.put('/:id', TablesController.updatedTable)
+router.delete('/:id', TablesController.deleteTable)
+export default router

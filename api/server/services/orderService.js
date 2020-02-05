@@ -5,7 +5,7 @@ class orderService {
     try {
       return await database.orders.findAll({
         include: [
-          { model: database.tables, as: "table" },
+          { model: database.tables, as: "tables" },
           { model: database.products, as: "products", duplicating: true }
         ]
       });
@@ -44,7 +44,7 @@ class orderService {
 
   static async getOrders(id) {
     try {
-      const theOrders = await database.orders.findOne({
+      const theOrders = await database.items.findOne({
         where: { id: Number(id) }
       });
 
@@ -71,6 +71,46 @@ class orderService {
       throw error;
     }
   }
+
+  static async getOrderItems(id) {
+    try {
+      const theItens = await database.items.findAll({
+        where: { OrderId: Number(id) }
+      })
+      return theItens;
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async updateOrderItem(id, updateOrdersItems) {
+    try {
+      const itemToUpdate = await database.orders.findOne({
+        where: { id: Number(id) }
+      })
+      if (itemToUpdate) {
+        await database.orders.update(updateOrdersItems, { where: { id: Number(id) } })
+        return updateOrderItem;
+      }
+      return null;
+    } catch (error) {
+      throw error
+    }
+  }
+  static async deleteOrderItem(id) {
+    try {
+      const itemToDelete = await database.items.findOne({ where: { id: Number(id) } })
+      if (itemToDelete) {
+        const deletedOrderItem = await database.items.destroy({
+          where: { id: Number(id) }
+        })
+        return deletedOrderItem;
+      }
+      return null
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
-module.exports = orderService;
+export default orderService;

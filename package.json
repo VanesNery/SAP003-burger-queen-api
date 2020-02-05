@@ -39,13 +39,5 @@
     "eslint-plugin-import": "^2.20.1",
     "mocha": "^7.0.1",
     "nyc": "^15.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VanesNery/SAP003-burger-queen-api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/VanesNery/SAP003-burger-queen-api/issues"
-  },
-  "homepage": "https://github.com/VanesNery/SAP003-burger-queen-api#readme"
+  }
 }

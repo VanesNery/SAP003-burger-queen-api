@@ -103,4 +103,4 @@ class TablesController {
   }
 }
 
-module.exports = TablesController;
+export default TablesController;

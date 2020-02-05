@@ -67,4 +67,4 @@ class tablesService {
   }
 }
 
-module.exports = tablesService;
+export default tablesService;
