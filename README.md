@@ -49,21 +49,13 @@ Ambiente de produção
 
 ## 4. Tecnologias Utilizadas
 
-JavaScript
-Docker
-Npm
-NodeJs
-Express
-Sequelize
-Postgres
+JavaScript, Docker, Npm, NodeJs, Express, Sequelize, Postgres
 
 ## 5. Testes Realizados
-Mocha & Chai
-Postman
+Mocha & Chai, Postman
 
 ## 6. Hospedagem
-Heroku
-GitHub
+Heroku, GitHub
 
 ## 7. Link 
 https://burguer-queen-nery.herokuapp.com/api
