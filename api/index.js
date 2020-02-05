@@ -5,7 +5,6 @@ import ordersRoutes from './server/routes/ordersRoutes';
 import tablesRoutes from './server/routes/tablesRoutes';
 
 const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
