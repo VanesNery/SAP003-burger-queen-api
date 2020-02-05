@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const tables = sequelize.define(
     "tables",
     {
-      number: DataTypes.DECIMAL
+      number: DataTypes.INTEGER
     },
     {}
   );
