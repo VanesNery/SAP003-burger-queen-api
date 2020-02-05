@@ -1,21 +1,21 @@
-9# Burguer Queen API
+# Burguer Queen API
 
 ## Índice
 
-* [1. O que é?](#1-o-que-é-?)
+* [1. O que é?](#1-o-que-é?)
 * [2. Resumo do Projeto](#2-resumo-do-projeto)
 * [3. Como Utilizar](#3-como-utilizar)
 * [4. Tecnologias Utilizadas](#4-tecnologias-utilizadas)
 * [5. Testes Realizados](#5-testes-realizados)
 * [6. Hospedagem](#6-hospedagem)
 * [7. Link](#7-link)
-* [8. Visão do Banco](#8-visao-do-banco)
-* [9. Checklist dessa Versão](#9-checklist-dessa-versao)
-* [10. Próxima Versão](#10-proxima-versao)
+* [8. Visão do Banco](#8-visão-do-banco)
+* [9. Checklist dessa Versão](#9-checklist-dessa-versão)
+* [10. Próxima Versão](#10-próxima-versão)
 
 ***
 ## 1. O que é?
-Projeto proposto pela Laboratória. O Burger Queen é uma API rest que será compatível com as requisições vinds do Front - ![Burguer Queen](https://github.com/VanesNery/SAP003-burger-queen).
+Projeto proposto pela Laboratória. O Burger Queen é uma API rest que será compatível com as requisições vinds do Front -Burguer Queen https://github.com/VanesNery/SAP003-burger-queen.
 
 ## 2. Resumo do Projeto
 
@@ -23,7 +23,7 @@ Ele trabalha como um servidor web, através de portas especificas, essa API envi
 
 ## 3. Como Utilizar
 
-Será necessário a utilização do ![NodeJs](https://nodejs.org/pt-br/) e ![Docker](https://www.mundodocker.com.br/o-que-e-docker/)
+Será necessário a utilização do [NodeJs](https://nodejs.org/pt-br/) e [Docker](https://www.mundodocker.com.br/o-que-e-docker/)
 
 **[Utilizando o comando]**
 
@@ -69,7 +69,7 @@ GitHub
 https://burguer-queen-nery.herokuapp.com/api
 
 ## 8. Visão do Banco
-Como o banco de dados foi desenha para esse projeto.
+Como o banco de dados foi desenhado para esse projeto.
 ![modelagem do banco](./visao_do_Banco.png)
 ***
 ## 9. Checklist dessa Versão
