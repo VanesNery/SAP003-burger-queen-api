@@ -14,9 +14,9 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/tables', tablesRoutes);
 
-app.get("*", (req, res) =>
+app.get('*', (req, res) =>
   res.status(200).send({
-    message: "Bem-Vindo a API Burguer Queen"
+    message: 'Bem-Vindo a API Burguer Queen'
   })
 );
 
