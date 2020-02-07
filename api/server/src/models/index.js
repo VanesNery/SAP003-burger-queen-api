@@ -14,9 +14,7 @@ const db = {};
 
 let sequelize
 if (config.environment === 'production') {
-  sequelize = new Sequelize(
-      process.env[config.use_env_variable], config
-    )
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
   sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -54,7 +52,7 @@ Object.keys(db).forEach((modelName) => {
   }
 })
 
-db.sequelize = sequelize
-db.Sequelize = Sequelize
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
 export default db;

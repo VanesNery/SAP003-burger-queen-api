@@ -43,7 +43,7 @@ class ProductController {
     }
   }
 
-  static async updatedProduct(req, res) {
+  static async updateProduct(req, res) {
     const alteredProduct = req.body;
     const { id } = req.params;
     if (!Number(id)) {
@@ -67,7 +67,7 @@ class ProductController {
     }
   }
 
-  static async getProduct(req, res) {
+  static async getProducts(req, res) {
     const { id } = req.params;
 
     if (!Number(id)) {

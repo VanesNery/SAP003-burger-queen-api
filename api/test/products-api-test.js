@@ -72,10 +72,10 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should get a particular product", done => {
-    const productsId = 1;
+    const productId = 1;
     chai
       .request(app)
-      .get(`/api/products/${productsId}`)
+      .get(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -92,25 +92,25 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should not get a particular product with invalid id", done => {
-    const productsId = 8888;
+    const productId = 8888;
     chai
       .request(app)
-      .get(`/api/products/${productsId}`)
+      .get(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(404);
         res.body.should.have
           .property("message")
-          .eql(`Cannot find product with the id ${productsId}`);
+          .eql(`Cannot find product with the id ${productId}`);
         done();
       });
   });
 
   it("It should not get a particular product with non-numeric id", done => {
-    const productsId = "aaa";
+    const productId = "aaa";
     chai
       .request(app)
-      .get(`/api/products/${productsId}`)
+      .get(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(400);
@@ -122,9 +122,9 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should update a product", done => {
-    const productsId = 4;
+    const productId = 4;
     const updateProduct = {
-      id: productsId,
+      id: productId,
       name: "Suco Natural 750ml",
       price: 10,
       type: "Breakfast",
@@ -134,7 +134,7 @@ describe("Testing the product endpoints:", () => {
     };
     chai
       .request(app)
-      .put(`/api/products/${productsId}`)
+      .put(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .send(updateProduct)
       .end((err, res) => {
@@ -152,9 +152,9 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should not update a product with invalid id", done => {
-    const productsId = "9999";
+    const productId = "9999";
     const updateProduct = {
-      id: productsId,
+      id: productId,
       name: "Updated Awesome product again",
       price: 7,
       type: "Breakfast",
@@ -163,22 +163,22 @@ describe("Testing the product endpoints:", () => {
     };
     chai
       .request(app)
-      .put(`/api/products/${productsId}`)
+      .put(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .send(updateProduct)
       .end((err, res) => {
         expect(res.status).to.equal(404);
         res.body.should.have
           .property("message")
-          .eql(`Cannot find product with the id: ${productsId}`);
+          .eql(`Cannot find product with the id: ${productId}`);
         done();
       });
   });
 
   it("It should not update a product with non-numeric id value", done => {
-    const productsId = "ggg";
+    const productId = "ggg";
     const updateProduct = {
-      id: productsId,
+      id: productId,
       name: "Updated Awesome product again",
       price: 7,
       type: "Breakfast",
@@ -187,7 +187,7 @@ describe("Testing the product endpoints:", () => {
     };
     chai
       .request(app)
-      .put(`/api/products/${productsId}`)
+      .put(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .send(updateProduct)
       .end((err, res) => {
@@ -200,10 +200,10 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should delete a product", done => {
-    const productsId = 1;
+    const productId = 1;
     chai
       .request(app)
-      .delete(`/api/products/${productsId}`)
+      .delete(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(200);
@@ -213,25 +213,25 @@ describe("Testing the product endpoints:", () => {
   });
 
   it("It should not delete a product with invalid id", done => {
-    const productsId = 777;
+    const productId = 777;
     chai
       .request(app)
-      .delete(`/api/products/${productsId}`)
+      .delete(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(404);
         res.body.should.have
           .property("message")
-          .eql(`product with the id ${productsId} cannot be found`);
+          .eql(`product with the id ${productId} cannot be found`);
         done();
       });
   });
 
   it("It should not delete a product with non-numeric id", done => {
-    const productsId = "bbb";
+    const productId = "bbb";
     chai
       .request(app)
-      .delete(`/api/products/${productsId}`)
+      .delete(`/api/products/${productId}`)
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).to.equal(400);

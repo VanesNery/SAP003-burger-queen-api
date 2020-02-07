@@ -48,9 +48,9 @@ describe('Testing the table endpoints:', () => {
   });
 
   it('It should get a particular table', (done) => {
-    const tablesId = 2
+    const tableId = 2
     chai.request(app)
-      .get(`/api/tables/${tablesId}`)
+      .get(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(200)
@@ -61,22 +61,22 @@ describe('Testing the table endpoints:', () => {
   });
 
   it('It should not get a particular table with invalid id', (done) => {
-    const tablesId = 8888
+    const tableId = 8888
     chai.request(app)
-      .get(`/api/tables/${tablesId}`)
+      .get(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(404)
         res.body.should.have.property('message')
-          .eql(`Cannot find Table with the id ${tablesId}`)
+          .eql(`Cannot find Table with the id ${tableId}`)
         done()
       })
   });
 
   it('It should not get a particular table with non-numeric id', (done) => {
-    const tablesId = 'aaa'
+    const tableId = 'aaa'
     chai.request(app)
-      .get(`/api/tables/${tablesId}`)
+      .get(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(400)
@@ -87,13 +87,13 @@ describe('Testing the table endpoints:', () => {
   });
 
   it('It should update a table', (done) => {
-    const tablesId = 2
+    const tableId = 2
     const updatedTable = {
-      id: tablesId,
+      id: tableId,
       number: 2,
     }
     chai.request(app)
-      .put(`/api/tables/${tablesId}`)
+      .put(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .send(updatedTable)
       .end((err, res) => {
@@ -105,31 +105,31 @@ describe('Testing the table endpoints:', () => {
   });
 
   it('It should not update a table with invalid id', (done) => {
-    const tablesId = '9999'
+    const tableId = '9999'
     const updatedTable = {
-      id: tablesId,
+      id: tableId,
       number: 4
     }
     chai.request(app)
-      .put(`/api/tables/${tablesId}`)
+      .put(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .send(updatedTable)
       .end((err, res) => {
         expect(res.status).to.equal(404)
         res.body.should.have.property('message')
-          .eql(`Cannot find Table with the id: ${tablesId}`)
+          .eql(`Cannot find Table with the id: ${tableId}`)
         done()
       })
   });
 
   it('It should not update a table with non-numeric id value', (done) => {
-    const tablesId = 'ggg'
+    const tableId = 'ggg'
     const updatedTable = {
-      id: tablesId,
+      id: tableId,
       number: 5
     }
     chai.request(app)
-      .put(`/api/tables/${tablesId}`)
+      .put(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .send(updatedTable)
       .end((err, res) => {
@@ -149,9 +149,9 @@ describe('Testing the table endpoints:', () => {
       .set('Accept', 'application/json')
       .send(table)
       .end(() => {
-        const tablesId = 4
+        const tableId = 4
         chai.request(app)
-          .delete(`/api/tables/${tablesId}`)
+          .delete(`/api/tables/${tableId}`)
           .set('Accept', 'application/json')
           .end((err, res) => {
             expect(res.status).to.equal(200)
@@ -165,22 +165,22 @@ describe('Testing the table endpoints:', () => {
   });
 
   it('It should not delete a table with invalid id', (done) => {
-    const tablesId = 777
+    const tableId = 777
     chai.request(app)
-      .delete(`/api/tables/${tablesId}`)
+      .delete(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(404)
         res.body.should.have.property('message')
-          .eql(`Table with the id ${tablesId} cannot be found`)
+          .eql(`Table with the id ${tableId} cannot be found`)
         done()
       })
   });
 
   it('It should not delete a table with non-numeric id', (done) => {
-    const tablesId = 'bbb'
+    const tableId = 'bbb'
     chai.request(app)
-      .delete(`/api/tables/${tablesId}`)
+      .delete(`/api/tables/${tableId}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(400)

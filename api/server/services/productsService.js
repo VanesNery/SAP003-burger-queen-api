@@ -1,4 +1,4 @@
-import database from "../src/models";
+import database from '../src/models';
 
 class productsService {
   static async getAllProducts() {
@@ -17,25 +17,6 @@ class productsService {
     }
   }
 
-  static async updateProduct(id, updateProduct) {
-    try {
-      const productToUpdate = await database.products.findOne({
-        where: { id: Number(id) }
-      });
-
-      if (productToUpdate) {
-        await database.products.update(updateProduct, {
-          where: { id: Number(id) }
-        });
-
-        return updateProduct;
-      }
-      return null;
-    } catch (error) {
-      throw error;
-    }
-  }
-
   static async getProducts(id) {
     try {
       const theProducts = await database.products.findOne({
@@ -43,6 +24,22 @@ class productsService {
       });
 
       return theProducts;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async updateProduct(id, updateProduct) {
+    try {
+      const productToUpdate = await database.products.findOne({
+        where: { id: Number(id) }
+      })
+
+      if (productToUpdate) {
+        await database.products.update(updateProduct, { where: { id: Number(id) } })
+        return updateProduct;
+      }
+      return null;
     } catch (error) {
       throw error;
     }
@@ -67,4 +64,4 @@ class productsService {
   }
 }
 
-module.exports = productsService;
+export default productsService;

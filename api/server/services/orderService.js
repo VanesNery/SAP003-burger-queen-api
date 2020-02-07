@@ -1,16 +1,15 @@
-import database from "../src/models";
+import database from '../src/models';
 
 class orderService {
   static async getAllOrders() {
     try {
       return await database.orders.findAll({
         include: [
-          { model: database.tables, as: "tables" },
-          { model: database.products, as: "products", duplicating: true }
+          { model: database.tables, as: 'tables' },
+          { model: database.products, as: 'products', duplicating: true }
         ]
       });
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }
@@ -75,7 +74,7 @@ class orderService {
   static async getOrderItems(id) {
     try {
       const theItens = await database.items.findAll({
-        where: { OrderId: Number(id) }
+        where: { orderId: Number(id) }
       })
       return theItens;
     } catch (error) {

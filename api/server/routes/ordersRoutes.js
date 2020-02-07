@@ -1,15 +1,15 @@
 import { Router } from 'express'
-import OrderController from '../controllers/OrdersController';
+import OrdersController from '../controllers/OrdersController';
 
 const router = Router()
-router.get('/', OrderController.getAllOrders)
-router.get('/items', OrderController.getAllOrdersItems)
-router.get('/items/:id', OrderController.getAllOrdersItems);
-router.post('/', OrderController.addOrder);
-router.post('/items', OrderController.addOrdersItems);
-router.get('/:id', OrderController.getOrder);
-router.put('/:id', OrderController.updatedOrder);
-router.put('/items/:id', OrderController.updateOrdersItems);
-router.delete('/:id', OrderController.deleteOrder);
-router.delete('/items/:id', OrderController.deleteOrdersItems);
+router.get('/', OrdersController.getAllOrders)
+router.get('/items', OrdersController.getAllOrdersItems)
+router.get('/items/:id', OrdersController.getAllOrdersItems);
+router.post('/', OrdersController.addOrder);
+router.post('/items', OrdersController.addOrdersItems);
+router.get('/:id', OrdersController.getOrder);
+router.put('/:id', OrdersController.updatedOrder);
+router.put('/items/:id', OrdersController.updateOrdersItems);
+router.delete('/:id', OrdersController.deleteOrder);
+router.delete('/items/:id', OrdersController.deleteOrdersItems);
 export default router

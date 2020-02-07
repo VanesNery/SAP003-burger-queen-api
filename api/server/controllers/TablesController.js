@@ -35,7 +35,7 @@ class TablesController {
     }
   }
 
-  static async updatedTable(req, res) {
+  static async updateTable(req, res) {
     const alteredTable = req.body;
     const { id } = req.params;
     if (!Number(id)) {
@@ -56,7 +56,7 @@ class TablesController {
     }
   }
 
-  static async getTable(req, res) {
+  static async getTables(req, res) {
     const { id } = req.params;
 
     if (!Number(id)) {
@@ -65,7 +65,7 @@ class TablesController {
     }
 
     try {
-      const theTable = await tablesService.getTable(id);
+      const theTable = await tablesService.getTables(id);
 
       if (!theTable) {
         util.setError(404, `Cannot find Table with the id ${id}`);
