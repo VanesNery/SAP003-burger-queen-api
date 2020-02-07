@@ -70,14 +70,20 @@ describe('Testing the order endpoints:', () => {
       .end((err, res) => {
         expect(res.status).to.equal(200)
         res.body.data.should.have.property('id')
+        res.body.data.should.have.property('clientName')
         res.body.data.should.have.property('tableId')
+        res.body.data.should.have.property('productId')
+        res.body.data.should.have.property('quantity')
+        res.body.data.should.have.property('total')
         res.body.data.should.have.property('status')
+        res.body.data.should.have.property('time')
+        res.body.data.should.have.property('finalTime')
         done()
       })
   });
 
   it('It should not get a particular order with invalid id', (done) => {
-    const orderId = 8888
+    const orderId = -888
     chai.request(app)
       .get(`/api/orders/${orderId}`)
       .set('Accept', 'application/json')
