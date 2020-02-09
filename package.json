@@ -4,13 +4,14 @@
   "description": "New version of Burguer Queen",
   "main": "index.js",
   "scripts": {
-    "migrate": "npx sequelize-cli db:migrate",
-    "test": "env NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
-    "dev": "nodemon  --exec babel-node ./api/index.js",
+    "migrate": "npx sequelize-cli db:create",
+    "test": "env NODE_ENV=test &&  sequelize db:migrate &&  sequelize db:seed:all  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
+    "dev": "env NODE_ENV=dev && sequelize db:create && sequelize db:migrate &&  sequelize db:seed:all  && nodemon  --exec babel-node ./api/index.js",
     "start": "babel-node ./api/index.js"
   },
   "keywords": [],
   "author": "Vanessa Nery",
+  "license": "Unlicense",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
