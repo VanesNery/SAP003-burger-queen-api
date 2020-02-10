@@ -1,5 +1,5 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from 'express'
+import bodyParser from 'body-parser'
 import productRoutes from './server/routes/productRoutes';
 import ordersRoutes from './server/routes/ordersRoutes';
 import tablesRoutes from './server/routes/tablesRoutes';
@@ -16,7 +16,7 @@ app.use('/api/tables', tablesRoutes);
 
 app.get('*', (req, res) =>
   res.status(200).send({
-    message: 'Bem-Vindo a API Burguer Queen'
+    message: 'Bem-Vindo a API Burguer Queen',
   })
 );
 
@@ -24,4 +24,4 @@ app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`)
 });
 
-export default app;
+export default app

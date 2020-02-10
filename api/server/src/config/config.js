@@ -4,16 +4,17 @@ module.exports = {
     "development": {
     "username": "postgres",
     "password": null,
-    "database": "new_store_development",
+    "database": "burguerqueen_dev",
     "host": "db",
     "dialect": "postgres",
   },
   "test": {
     "username": "postgres",
     "password": null,
-    "database": "new_store_test",
+    "database": "burguerqueen_test",
     "host": "db",
     "dialect": "postgres",
+    "logging": false,
   },
   "production": {
     "username": process.env.DB_USER,
@@ -21,9 +22,5 @@ module.exports = {
     "database": process.env.DB_DATABASE,
     "host": process.env.DB_HOST,
     "dialect": "postgres",
-    "operatorsAliases": false,
-    "dialectOptions": {
-      "ssl": true
-    }
   }
 }
