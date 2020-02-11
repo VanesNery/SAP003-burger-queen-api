@@ -4,11 +4,11 @@ import productRoutes from './server/routes/productRoutes';
 import ordersRoutes from './server/routes/ordersRoutes';
 import tablesRoutes from './server/routes/tablesRoutes';
 
-const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
 
 app.use('/api/products', productRoutes);
 app.use('/api/orders', ordersRoutes);

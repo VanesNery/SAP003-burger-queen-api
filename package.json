@@ -4,9 +4,9 @@
   "description": "New version of Burguer Queen",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
-    "dev": "nodemon  --exec babel-node ./api/index.js",
     "migrate": "npx sequelize-cli db:migrate",
+    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register mocha ./api/test/*-test.js --timeout 20000 --exit",
+    "dev": "nodemon --exec babel-node ./api/index.js",
     "start": "babel-node ./api/index.js"
   },
   "keywords": [],
@@ -21,8 +21,10 @@
     "path": "^0.12.7",
     "pg": "^7.18.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3",
-    "sequelize-cli": "^5.5.1",
+    "sequelize": "^5.21.4",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
@@ -30,9 +32,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.8.3",
     "@babel/runtime": "^7.8.4",
-    "babel-loader": "^8.0.6"
-  },
-  "devDependencies": {
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^6.8.0",

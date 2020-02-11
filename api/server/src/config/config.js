@@ -7,6 +7,7 @@ module.exports = {
     "database": "burguerqueen_dev",
     "host": "db",
     "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "postgres",
@@ -14,7 +15,7 @@ module.exports = {
     "database": "burguerqueen_test",
     "host": "db",
     "dialect": "postgres",
-    "logging": false,
+    "operatorsAliases": false
   },
   "production": {
     "username": process.env.DB_USER,
@@ -22,5 +23,6 @@ module.exports = {
     "database": process.env.DB_DATABASE,
     "host": process.env.DB_HOST,
     "dialect": "postgres",
+    "operatorsAliases": false
   }
 }
